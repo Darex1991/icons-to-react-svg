@@ -1,0 +1,25 @@
+@font-face {
+    font-family: "icons";
+    src: url("./icons.woff2?578dbcbce2f6305d574bb1179c45578a") format("woff2"),
+url("./icons.woff?578dbcbce2f6305d574bb1179c45578a") format("woff"),
+url("./icons.ttf?578dbcbce2f6305d574bb1179c45578a") format("truetype"),
+url("./icons.svg?578dbcbce2f6305d574bb1179c45578a#icons") format("svg");
+}
+
+i[class^="icon-"]:before, i[class*=" icon-"]:before {
+    font-family: icons !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-sort_ascending:before {
+    content: "\e007";
+}
+.icon-sort_descending:before {
+    content: "\e006";
+}
