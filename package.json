@@ -1,0 +1,83 @@
+{
+  "name": "icons-to-react-svg",
+  "version": "0.0.1",
+  "description": "Icons to React SVG / Font-family / Experimental pseudo-element",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Darex1991/icons-to-react-svg.git"
+  },
+  "author": "Darex1991",
+  "license": "UNLICENSED",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "directories": {
+    "dist": "dist",
+    "lib": "lib"
+  },
+  "files": [
+    "dist",
+    "lib"
+  ],
+  "keywords": [
+    "icons"
+  ],
+  "bugs": {
+    "url": "https://github.com/Darex1991/icons-to-react-svg/issues"
+  },
+  "homepage": "https://github.com/Darex1991/icons-to-react-svg#readme",
+  "scripts": {
+    "clean": "rm -rf lib && yarn run clean:icons-components && yarn run clean:fonts",
+    "clean:fonts": "rm -rf .icons/**",
+    "clean:icons-components": "rm -rf ./src/**",
+    "create-help-directory": "cp -a icon/*.svg .icons",
+    "clean-icons": "yarn run create-help-directory && svgo -f .icons --multipass --config scripts/config.yml",
+    "build": "yarn clean && yarn run clean-icons && yarn build:generate-files && yarn run clean:icons-components",
+    "generate-icons": "node scripts/generate-icons",
+    "generate-fonts": "yarn icon-font-generator .icons/**/*.svg -o dist --types 'svg, ttf, woff, woff2' --height 1024 --descent 160 --ascent 160 --name 'icons' --codepoint '0xe001' --codepoints scripts/icons.json --jsonpath scripts/icons.json",
+    "build:generate-files": "yarn generate-icons && yarn generate-fonts && yarn build:lib",
+    "build:lib": "NODE_ENV=production babel src/ --out-dir ./lib --copy-files",
+    "lint:eslint": "eslint --fix .",
+    "lint": "yarn lint:eslint",
+    "prettier": "prettier --config .prettierrc \"./scripts/*.+(js)\" --write"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix"
+    ],
+    "./**/*.+(js|json|jsx)": [
+      "prettier --write"
+    ]
+  },
+  "peerDependencies": {
+    "react": "^16.12.0"
+  },
+  "dependencies": {
+    "icon-font-generator": "git://github.com/Darex1991/icon-font-generator.git#master",
+    "glob": "^7.1.6",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/plugin-proposal-export-default-from": "^7.5.2",
+    "@babel/plugin-proposal-export-namespace-from": "^7.5.2",
+    "@babel/plugin-proposal-object-rest-spread": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "^7.0.0",
+    "babel-eslint": "^10.0.2",
+    "babel-loader": "^8.0.6",
+    "cross-env": "^6.0.3",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-import-resolver-webpack": "^0.11.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-react": "^7.14.3",
+    "prettier": "^1.18.2",
+    "prettier-eslint": "^9.0.0",
+    "rimraf": "^3.0.0",
+    "signale": "^1.4.0",
+    "simple-icons": "^2.7.0",
+    "uppercamelcase": "^3.0.0"
+  }
+}

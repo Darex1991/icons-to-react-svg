@@ -1,0 +1,21 @@
+/node_modules
+/node_modules_bak
+npm-debug.log
+yarn-error.log
+
+# IntelliJ
+*.iml
+/.idea
+.idea
+
+# VisualStudioCode
+/.history
+/.vscode
+
+.DS_Store
+
+.ssh/id_rsa
+.ssh/id_rsa.pub
+
+src/*
+
