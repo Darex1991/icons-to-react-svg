@@ -1,11 +1,15 @@
 # Icons to React SVG / Font-family / Experimental pseudo-element
 
+This package is for creating `react component with svg icon`, or `font-family` or icons based on `:before` pseudo-element using one click.
+
+---- 
+
 ## Important
 ### 1) Do not use unicode bigger than 1000 (it is not working)!
 ### 2) Use underscores in the icon file name!
 
 ## Installation:
-`yarn`
+just install it, ie: `yarn`
 
 ## Adding new icons:
 1) Add icon into `icon` folder
