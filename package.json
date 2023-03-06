@@ -1,6 +1,6 @@
 {
   "name": "icons-to-react-svg",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Icons to React SVG / Font-family / Experimental pseudo-element",
   "repository": {
     "type": "git",
